@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hamlib-tci-sidecar"
+version = "0.1.0"
+description = "Audio sidecar that bridges Hamlib rigctld's TCI 2.0 driver to PulseAudio/PipeWire virtual sinks for ham radio software (JS8Call, fldigi, WSJT-X)"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Jeff Francis", email = "gjfrancis@protonmail.com"}
+]
+keywords = ["hamradio", "ham", "radio", "tci", "expertsdr3", "sunsdr", "hamlib", "rigctld", "js8call", "fldigi", "wsjtx"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "Intended Audience :: Telecommunications Industry",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Communications :: Ham Radio",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "numpy>=1.20",
+]
+
+[project.urls]
+Homepage = "https://github.com/jfrancis42/hamlib-tci-sidecar"
+
+[tool.setuptools]
+script-files = [
+    "tci-sidecar-linux.py",
+]
+# Sidecar is a single script.  No package layout; nothing to ship as a
+# module.  The script is installed verbatim into the user's bin directory.
+# Disable auto-discovery so setuptools doesn't try to package up `old/`,
+# `archive/`, or anything else that happens to contain .py files.
+py-modules = []
+packages = []

@@ -1,0 +1,28 @@
+# Project-local exclusions
+archive/
+old/
+__pycache__/
+
+# Port planning notes -- don't publish to GitHub or PyPI
+windows.md
+osx.md
+
+# Python
+*.py[cod]
+*$py.class
+*.egg
+*.egg-info/
+.Python
+
+# Build / packaging
+build/
+dist/
+*.tar.gz
+*.whl
+
+# Editor / OS
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store

@@ -1,5 +1,6 @@
-# Runtime dependency for the sidecar
+# Runtime dependencies for the sidecars
 numpy>=1.20
+pyzmq>=24             # required by tci-iq-sidecar.py for ZMQ PUB output
 
 # Optional, only needed by js8_tx_test.py for driving JS8Call from Python:
 #   pip install js8net-legacy

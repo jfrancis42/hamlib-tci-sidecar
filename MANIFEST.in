@@ -1,8 +1,14 @@
-# Include the script (also in script-files) plus the docs and helper tools
+# Include the scripts (also in script-files) plus the docs and helper tools
 include README.md
 include LICENSE
+include PROTOCOL.md
 include requirements.txt
-include tci-sidecar-linux.py
+include tci-audio-soundcard-sidecar.py
+include tci-audio-gr-sidecar.py
+include tci-audio-gr-tester.py
+include tci-iq-sidecar.py
+include tci-iq-viewer.py
+include tci.sh
 
 # Helper / verification scripts that aren't installed as console scripts
 # but are useful for someone reading the source.
@@ -10,6 +16,7 @@ include test_audio_simple.py
 include test_tx.py
 include monitor_tx.py
 include js8_tx_test.py
+include ssa_tx_test.py
 
 # Things that should never end up in a release sdist or wheel
 prune old

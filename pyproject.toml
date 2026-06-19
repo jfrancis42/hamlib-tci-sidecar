@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "hamlib-tci-sidecar"
 version = "0.1.0"
-description = "Audio sidecar that bridges Hamlib rigctld's TCI 2.0 driver to PulseAudio/PipeWire virtual sinks for ham radio software (JS8Call, fldigi, WSJT-X)"
+description = "Sidecars that bridge Hamlib rigctld's TCI 2.0 driver to PulseAudio/PipeWire (for JS8Call, fldigi, WSJT-X) and to GNU Radio (for SDR DSP), plus an IQ stream sidecar"
 readme = "README.md"
 license = {text = "MIT"}
 authors = [
@@ -26,6 +26,7 @@ classifiers = [
 requires-python = ">=3.8"
 dependencies = [
     "numpy>=1.20",
+    "pyzmq>=24",
 ]
 
 [project.urls]
@@ -33,11 +34,17 @@ Homepage = "https://github.com/jfrancis42/hamlib-tci-sidecar"
 
 [tool.setuptools]
 script-files = [
-    "tci-sidecar-linux.py",
+    "tci-audio-soundcard-sidecar.py",
+    "tci-audio-gr-sidecar.py",
+    "tci-audio-gr-tester.py",
+    "tci-iq-sidecar.py",
+    "tci-iq-viewer.py",
+    "tci.sh",
 ]
-# Sidecar is a single script.  No package layout; nothing to ship as a
-# module.  The script is installed verbatim into the user's bin directory.
-# Disable auto-discovery so setuptools doesn't try to package up `old/`,
-# `archive/`, or anything else that happens to contain .py files.
+# Each sidecar is a single self-contained script.  No package layout;
+# nothing to ship as an importable module.  Scripts are installed
+# verbatim into the user's bin directory.  Disable auto-discovery so
+# setuptools doesn't try to package up `old/`, `archive/`, or anything
+# else that happens to contain .py files.
 py-modules = []
 packages = []
